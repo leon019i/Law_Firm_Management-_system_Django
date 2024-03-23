@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-&r^qatb7=!fk#yp88i3y^j_&^w3wee#k9u=hb^ake+^ywu9n0j
 DEBUG = True
 SITE_ID = 1
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['law-firm-management-system-django.onrender.com']
 
 # Application definition
 
