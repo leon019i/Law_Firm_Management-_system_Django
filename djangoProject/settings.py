@@ -27,6 +27,7 @@ SITE_ID = 1
 
 ALLOWED_HOSTS = ['law-firm-management-system-django.onrender.com']
 
+
 # Application definition
 
 INSTALLED_APPS = [
