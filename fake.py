@@ -55,6 +55,9 @@ def create_cases(n):
 
 
 # Creating fake data
-# create_clients(10)  # Create 10 fake clients
+create_clients(10)  # Create 10 fake clients
 create_lawyers(9)  # Create 5 fake lawyers
-# create_cases(20)  # Create 20 fake cases
+create_cases(20)  # Create 20 fake cases
+
+
+
