@@ -27,7 +27,6 @@ SITE_ID = 1
 
 ALLOWED_HOSTS = ['law-firm-management-system-django.onrender.com']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -47,7 +46,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -96,7 +95,7 @@ WSGI_APPLICATION = 'djangoProject.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgresql://postgres:postgres@localhost:5432/Law_firm_proj',
+        default='postgres://law_firm_proj_user:nLjAJPh8250S0rHe75juAe1AVvpaaHQc@dpg-cnvd15icn0vc73c7r9og-a/law_firm_proj',
         conn_max_age=600
     )
 }
