@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+
+    <h1 class="mb-4"> {% if object %}Update{% else %}Add {% endif %} Lawyer</h1>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="{{ form.first_name.id_for_label }}">First Name:</label>
+                <input type="text" class="form-control" id="{{ form.first_name.id_for_label }}"
+                       name="{{ form.first_name.html_name }}" value="{{ form.first_name.value|default:'' }}" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="{{ form.last_name.id_for_label }}">Last Name:</label>
+                <input type="text" class="form-control" id="{{ form.last_name.id_for_label }}"
+                       name="{{ form.last_name.html_name }}" value="{{ form.last_name.value|default:'' }}" required>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="{{ form.email.id_for_label }}">Email:</label>
+                <input type="email" class="form-control" id="{{ form.email.id_for_label }}"
+                       name="{{ form.email.html_name }}" value="{{ form.email.value|default:'' }}" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="{{ form.phone.id_for_label }}">Phone:</label>
+                <input type="text" class="form-control" id="{{ form.phone.id_for_label }}"
+                       name="{{ form.phone.html_name }}" value="{{ form.phone.value|default:'' }}" required>
+            </div>
+        </div>
+
+        </br>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a class="btn btn-secondary" href="{% url 'cases:lawyer_list' %}">Cancel</a>
+    </form>
+{% endblock %}
+

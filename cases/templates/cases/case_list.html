@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="mb-4">Cases</h1>
+    <a class="btn btn-primary mb-3" href="{% url 'cases:case_create' %}">Add Case</a>
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Client</th>
+            <th>Lawyer</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for case in object_list %}
+            <tr>
+                <td>{{ case.title }}</td>
+                <td>{{ case.get_status_display }}</td>
+                <td>{{ case.client.first_name }} {{ case.client.last_name }}</td>
+                <td>{{ case.lawyer.first_name }} {{ case.lawyer.last_name }}</td>
+                <td>
+                    <a class="btn btn-sm btn-info" href="{% url 'cases:case_update' case.pk %}">Edit</a>
+                    <a class="btn btn-sm btn-danger" href="{% url 'cases:case_delete' case.pk %}">Delete</a>
+                </td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="4" class="text-center"> No Cases found.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+  

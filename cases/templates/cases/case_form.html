@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+
+    <h1 class="mb-4"> {% if object %}
+        <a class="btn btn-sm btn-info" href="{% url 'cases:client_update' client.pk %}"><i class="fas fa-edit"></i> Edit</a>{% else %}
+        Add {% endif %} Case</h1>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="{{ form.title.id_for_label }}">Title:</label>
+                <input type="text" class="form-control" id="{{ form.title.id_for_label }}"
+                       name="{{ form.title.html_name }}" value="{{ form.title.value|default:'' }}" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="{{ form.client.id_for_label }}">Client:</label>
+                {{ form.client|add_class:"form-control" }}
+            </div>
+
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="{{ form.lawyer.id_for_label }}">Lawyer:</label>
+                {{ form.lawyer|add_class:"form-control" }}
+            </div>
+            <div class="form-group col-md-6">
+                <label for="{{ form.status.id_for_label }}">Status:</label>
+                {{ form.status|add_class:"form-control" }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.description.id_for_label }}">Description:</label>
+            <textarea class="form-control" id="{{ form.description.id_for_label }}"
+                      name="{{ form.description.html_name }}"
+                      rows="5" required>{{ form.description.value|default:'' }}</textarea>
+        </div>
+        </br>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a class="btn btn-secondary" href="{% url 'cases:case_list' %}">Cancel</a>
+
+
+    </form>
+
+
+{% endblock %}
+
